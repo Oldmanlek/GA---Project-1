@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded' , () => {
             }
         }
         let timerId = setInterval(movePipes, 20) //
-        if (!isGameOver) setTimeout(pipes, 3000)
+        if (!isGameOver) setTimeout(pipes,3000)
     }
     pipes();
 
