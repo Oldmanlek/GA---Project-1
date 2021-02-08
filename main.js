@@ -8,6 +8,21 @@ document.addEventListener('DOMContentLoaded' , () => {
     let gravity = 2;
     let isGameOver = false;
     let gap = 450;
+    // const gameState = {
+    //     current: 0,
+    //     getReady : 0,
+    //     game : 1,
+    //     over : 2
+    // }
+    //
+    // function stateOfGame(){
+    //     document.querySelector('.game-container');
+    //     if(gameState[])
+    // }
+    //
+    //
+
+
 
     function startGame(){
         birdBottom -= gravity;
@@ -72,7 +87,7 @@ document.addEventListener('DOMContentLoaded' , () => {
     function gameOver(){
         clearInterval(gameTimerId)
         console.log("game over?")
-        isGameOver == true
+        isGameOver = true
         document.removeEventListener('keyup', control)
     }
 })
