@@ -1,38 +1,45 @@
 document.addEventListener('DOMContentLoaded' , () => {
     const bird = document.querySelector('.bird');
     const gameContainer = document.querySelector('.game-container');
-    const ground = document.querySelector('.ground');
+    //const ground = document.querySelector('.ground');
+    const newGame = document.querySelector('#start-btn');
 
     let birdLeft = 220;
     let birdBottom = 100;
     let gravity = 1;             //change this to set difficulty
     let isGameOver = false;
     let gap = 430;
-
-    // const gameState = {
+    // let score = 0;
+    //
+    // const gameState = [{
     //     current: 0,
     //     getReady : 0,
     //     inGame : 1,
     //     over : 2
+    // }];
+    //
+    //
+    // function stateOfGame(){
+    //     if(gameState == gameState[0].inGame){
+    //         stateOfGame();
+    //         console.log("??")
+    //     }
     // }
-    // //
-    // // document.addEventListener("click", function(e){
-    // //     if(gameState == gameState[0]){
-    // //         console.log('we are in current')
-    // //     }
-    // // })
-    // //
-    // // //edit code above for gameSate
-
-    function startGame(){
+    document.querySelector('.modal__holder').style.display = 'none'
+    function startersUp(){
+        // document.querySelector('.modal__holder').style.display = 'block'
+        // newGame.addEventListener('click', startGame)
+        // isGameOver = false
         birdBottom -= gravity; //gravity is a property
         bird.style.bottom = birdBottom + 'px'
         bird.style.left = birdLeft + 'px'
     }
-    let gameTimerId = setInterval(startGame, 20)
+
+    let gameTimerId = setInterval(startersUp,30)
+
 
     function control(e) {
-        if (e.keyCode === 38 || e.keyCode === 32) {    //used keyCode method, assigned spacebar & upArrowKey to invoke jump function
+        if (e.code === "Space" || e.key === "ArrowUp") {    //used keyCode method, assigned spacebar & upArrowKey to invoke jump function
             jump()
         }
     }
@@ -42,8 +49,6 @@ document.addEventListener('DOMContentLoaded' , () => {
         console.log(birdBottom)
     }
     document.addEventListener('keyup', control)
-
-
                                             //making of pipes
     function pipes(){  //creating the obstacle function
         let obstacleLeft = 500
@@ -59,24 +64,21 @@ document.addEventListener('DOMContentLoaded' , () => {
         gameContainer.appendChild(topObstacle)
         obstacle.style.left = obstacleLeft + 'px'
         topObstacle.style.left = obstacleLeft + 'px'
-        obstacle.style.bottom = obstacleBottom + 'px'
+        obstacle.style.bottom = 50 + obstacleBottom + 'px'
         topObstacle.style.bottom = obstacleBottom + gap + 'px'
-
-
                                             //making the pipes move from left to right
         function movePipes(){
             obstacleLeft -=2
             obstacle.style.left = obstacleLeft + 'px'
             topObstacle.style.left = obstacleLeft + 'px'
-
             if (obstacleLeft === -50){
                 clearInterval(timerId)
                 gameContainer.removeChild(obstacle)
                 gameContainer.removeChild(topObstacle)
             }
             if (
-                obstacleLeft > 200 && obstacleLeft < 280 && birdLeft === 220 &&
-                (birdBottom < obstacleBottom + 153 || birdBottom > obstacleBottom + gap -200) ||
+                obstacleLeft > 200 && obstacleLeft < 200 && birdLeft === 200 &&
+                (birdBottom < obstacleBottom + 153 || birdBottom > obstacleBottom + gap -150) ||
                 birdBottom === 0
                 ) {
                 gameOver()
@@ -87,14 +89,13 @@ document.addEventListener('DOMContentLoaded' , () => {
         if (!isGameOver) setTimeout(pipes,3000)
     }
     pipes();
-
-
                                             //gameOver state
     function gameOver(){
         clearInterval(gameTimerId)
-        console.log("game over?")
         isGameOver = true
         document.removeEventListener('keyup', control)
+        document.querySelector('.modal__holder').style.display='block'
+        // newGame.addEventListener('click', startGame)
     }
 })
 
