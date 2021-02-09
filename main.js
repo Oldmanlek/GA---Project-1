@@ -5,34 +5,34 @@ document.addEventListener('DOMContentLoaded' , () => {
 
     let birdLeft = 220;
     let birdBottom = 100;
-    let gravity = 2;
+    let gravity = 1;             //change this to set difficulty
     let isGameOver = false;
-    let gap = 450;
+    let gap = 430;
+
     // const gameState = {
     //     current: 0,
     //     getReady : 0,
-    //     game : 1,
+    //     inGame : 1,
     //     over : 2
     // }
-    //
-    // function stateOfGame(){
-    //     document.querySelector('.game-container');
-    //     if(gameState[])
-    // }
-    //
-    //
-
-
+    // //
+    // // document.addEventListener("click", function(e){
+    // //     if(gameState == gameState[0]){
+    // //         console.log('we are in current')
+    // //     }
+    // // })
+    // //
+    // // //edit code above for gameSate
 
     function startGame(){
-        birdBottom -= gravity;
+        birdBottom -= gravity; //gravity is a property
         bird.style.bottom = birdBottom + 'px'
         bird.style.left = birdLeft + 'px'
     }
     let gameTimerId = setInterval(startGame, 20)
 
-    function control(e){
-        if(e.keyCode === 38 || e.keyCode === 32){
+    function control(e) {
+        if (e.keyCode === 38 || e.keyCode === 32) {    //used keyCode method, assigned spacebar & upArrowKey to invoke jump function
             jump()
         }
     }
@@ -43,6 +43,8 @@ document.addEventListener('DOMContentLoaded' , () => {
     }
     document.addEventListener('keyup', control)
 
+
+                                            //making of pipes
     function pipes(){  //creating the obstacle function
         let obstacleLeft = 500
         let randomHeight = Math.random() * 60
@@ -60,12 +62,14 @@ document.addEventListener('DOMContentLoaded' , () => {
         obstacle.style.bottom = obstacleBottom + 'px'
         topObstacle.style.bottom = obstacleBottom + gap + 'px'
 
+
+                                            //making the pipes move from left to right
         function movePipes(){
             obstacleLeft -=2
             obstacle.style.left = obstacleLeft + 'px'
             topObstacle.style.left = obstacleLeft + 'px'
 
-            if (obstacleLeft === -60){
+            if (obstacleLeft === -50){
                 clearInterval(timerId)
                 gameContainer.removeChild(obstacle)
                 gameContainer.removeChild(topObstacle)
@@ -84,6 +88,8 @@ document.addEventListener('DOMContentLoaded' , () => {
     }
     pipes();
 
+
+                                            //gameOver state
     function gameOver(){
         clearInterval(gameTimerId)
         console.log("game over?")
