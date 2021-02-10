@@ -18,17 +18,10 @@ document.addEventListener('DOMContentLoaded' , () => {
         console.log("Start game");
     }
 
-    newGame.addEventListener('click', startGame)
-    let gameTimerId = setInterval(startGame,20)
-
-    // function startersUp(){
-    //     console.log("start up");
-    //     gameTimerId = setInterval(startGame,20);
-    //     isGameOver = false
-    //     document.addEventListener('keyup', control)
-    //     document.querySelector('.modal__holder').style.display = 'none'
-    //     pipes();
-    // }
+    newGame.addEventListener('click', function(e){
+        window.location.reload()
+    });
+    let gameTimerId = setInterval(startGame,20);
 
     function control(e) {
         if (e.code === "Space" || e.key === "ArrowUp") {    //used keyCode method, assigned spaceBar & upArrowKey to invoke jump function
