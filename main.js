@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded' , () => {
     const bird = document.querySelector('.bird');
     const gameContainer = document.querySelector('.game-container');
     const newGame = document.querySelector('#start-btn');
+    const birdFlap = document.querySelector("#flapping-sound");
 
     let birdLeft = 220;
     let birdBottom = 100;
@@ -40,15 +41,10 @@ document.addEventListener('DOMContentLoaded' , () => {
 
     //add music below this line
 
-    function myMusics(){
-
-    }
-
-
-
     function jump(){
         if(birdBottom < 500) birdBottom += 50;
         bird.style.bottom = birdBottom + 'px'
+        birdFlap.play()
         console.log(birdBottom)
     }
     document.addEventListener('keyup', control)
