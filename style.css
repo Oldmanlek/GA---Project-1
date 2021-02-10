@@ -33,6 +33,16 @@ body{
     z-index: +2;
     top: -50px;
 }
+.border-bottom{
+    background-color: white;
+    width: 660px;
+    bottom: 0px;
+    height: 80px;
+    z-index: 9;
+    position: absolute;
+    text-align: center;
+    justify-items: center;
+}
 .sky{
     background-size: contain;
     background-size: cover;
@@ -79,7 +89,7 @@ body{
     width:100%;
     top:-21px !important;
     height:100%;
-    z-index: 999;
+    z-index: 10;
     display: none;
 }
 
