@@ -104,6 +104,7 @@ document.addEventListener('DOMContentLoaded' , () => {
         document.querySelector(".score").textContent = 0;
         document.querySelector('#finalScore').textContent = score; //prints out finalScore on modal-content
         // document.querySelector('.score').appendChild(scoreKeeper);
+        //
     //     document.getElementsByClassName(".modal-content").appendChild(scoreKeeper)
     }
 })
