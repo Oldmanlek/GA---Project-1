@@ -1,20 +1,3 @@
-<!--<!doctype html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta name="viewport"-->
-<!--          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">-->
-<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
-<!--    <title>Spread Your Wings and Fly Away</title>-->
-<!--    <link rel="stylesheet" href="style.css">-->
-<!--</head>-->
-<!--<body>-->
-<!--    <canvas id="bird" width="500" height="500"></canvas>-->
-
-<!--    <script src="main.js"></script>-->
-<!--</body>-->
-<!--</html>-->
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -22,20 +5,39 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Flap that damn bird</title>
+    <title>420 birdie</title>
     <script src="main.js" charset="utf-8"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="border-left"></div>
-    <div class="game-container">
-        <div class="border-top"></div>
-        <div class="sky">
-            <div class="bird"></div>
-        </div>
-        <div class="ground"></div>
-        <div class="border-right"></div>
+<div class="border-left"></div>
+<div class="game-container">
+
+    <div class="border-top"></div>
+    <div class="sky">
+        <div class="score"></div>
+        <div class="bird"></div>
     </div>
+    <div class="ground"></div>
+    <div class="border-right"></div>
+    <button class="modal-btn">Modal</button>
+    <!--        ebere moved to bottom-->
+    <div class="modal__holder">
+        <div class="black__bg"></div>
+        <div class="modal">
+            <div class="modal-content">
+                <h3>Game Over<br>Lit another</h3>
+                <h2 id="finalScore"></h2>
+                <button id="start-btn">blaze it or go home</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="border-bottom">420 BIRD BY LOGAN LEK</div>
+<!-- <script>
+    <audio id="flappingsound" src"fly.mp3"></audio>
+</script> -->
+
 </body>
 </html>
