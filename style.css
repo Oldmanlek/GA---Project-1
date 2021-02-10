@@ -46,11 +46,27 @@ body{
 .sky{
     background-size: contain;
     background-size: cover;
-    background-image: url(volcano.gif);
+    background-image: url(weed.gif);
     /*max-width: 100%;*/
     width: 500px;
     height: 580px;
     position: absolute;
+    display: flex;
+    justify-content: center;
+}
+.score{
+    width: 100px;
+    height: 75px;
+    color: hotpink;
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+}
+#finalScore{
+    display:flex;
+    justify-content: center;
+    color: hotpink;
 }
 .ground{
     background-image: url('lava.png');
@@ -111,10 +127,14 @@ body{
     height: 100%;
 
 }
-
 /*.modal, .modal-content{*/
 .modal .modal-content{
-    background-color: white;
+    background-image: url("modal-content-bg.jpg");
     padding: 10px;
+    border-radius: 10px;
+    background-size: cover;
 }
 
+h3{
+    color: white;
+}

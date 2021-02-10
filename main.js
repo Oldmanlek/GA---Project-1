@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded' , () => {
     let gravity = 2;             //change this to set difficulty
     let isGameOver = false;
     let gap = 430;
+    let score = 0;
+    let scoreKeeper;
+    let finalScore = scoreKeeper;
 
     document.querySelector('.modal__holder').style.display = 'none'
     function startGame(){
@@ -16,8 +19,14 @@ document.addEventListener('DOMContentLoaded' , () => {
         bird.style.left = birdLeft + 'px'
         isGameOver = false;
         console.log("Start game");
+        scoreKeeper = setInterval(
+            ()=>{
+                if(!isGameOver){
+                    document.querySelector(".score").textContent=score++;
+                }
+            },1000)
     }
-
+    //reloads page upon clicking start-btn & used reload method
     newGame.addEventListener('click', function(e){
         window.location.reload()
     });
@@ -37,7 +46,7 @@ document.addEventListener('DOMContentLoaded' , () => {
                                             //making of pipes
     function pipes(){  //creating the obstacle function
         let obstacleLeft = 500
-        let randomHeight = Math.random() * 60
+        let randomHeight = Math.random() * 100
         let obstacleBottom = randomHeight
         const obstacle = document.createElement('div')
         const topObstacle = document.createElement('div')
@@ -69,6 +78,8 @@ document.addEventListener('DOMContentLoaded' , () => {
             if ((condA && condB) || condC) {
                 gameOver(); //fire on game over
                 clearInterval(timerId);
+            }else{
+                score += 1;
             }
         }
         let timerId = setInterval(movePipes, 20) //
@@ -77,10 +88,14 @@ document.addEventListener('DOMContentLoaded' , () => {
     pipes();
                                             //gameOver state
     function gameOver(){
-        clearInterval(gameTimerId)
+        clearInterval(gameTimerId);
         isGameOver = true
         document.removeEventListener('keyup', control)
         document.querySelector('.modal__holder').style.display='block'
+        document.querySelector(".score").textContent = 0;
+        document.querySelector('#finalScore').textContent = score; //prints out finalScore on modal-content
+        // document.querySelector('.score').appendChild(scoreKeeper);
+    //     document.getElementsByClassName(".modal-content").appendChild(scoreKeeper)
     }
 })
 
