@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded' , () => {
     const gameContainer = document.querySelector('.game-container');
     const newGame = document.querySelector('#start-btn');
     const birdFlap = document.querySelector("#flapping-sound");
+    const bgMusic = document.querySelector("#background-music");
 
     let birdLeft = 220;
     let birdBottom = 100;
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded' , () => {
 
     document.querySelector('.modal__holder').style.display = 'none'
     function startGame(){
+        bgMusic.play();
         birdBottom -= gravity; //gravity is a property
         bird.style.bottom = birdBottom + 'px'
         bird.style.left = birdLeft + 'px'
