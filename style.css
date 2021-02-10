@@ -57,17 +57,17 @@ body{
 .score{
     width: 100px;
     height: 75px;
-    color: hotpink;
-    font-size: 24px;
+    font-size: 75px;
     display: flex;
+    color: white;
     justify-content: center;
     z-index: 10;
-    background-color: hotpink;
 }
 #finalScore{
     display:flex;
     justify-content: center;
     color: hotpink;
+    font-size: 50px;
 }
 .ground{
     background-image: url('lava.png');
