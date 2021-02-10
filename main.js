@@ -37,6 +37,15 @@ document.addEventListener('DOMContentLoaded' , () => {
             jump()
         }
     }
+
+    //add music below this line
+
+    function myMusics(){
+
+    }
+
+
+
     function jump(){
         if(birdBottom < 500) birdBottom += 50;
         bird.style.bottom = birdBottom + 'px'
